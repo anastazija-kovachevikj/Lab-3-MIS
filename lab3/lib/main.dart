@@ -126,7 +126,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _rangeSelectionMode = RangeSelectionMode.toggledOn;
     });
 
-    // `start` or `end` could be null
     if (start != null) {
       _selectedEvents.value = _getEventsForDay(start);
     } else if (end != null) {
@@ -177,14 +176,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
       Exam? nearestExam;
       Duration nearestDuration = Duration(
-          days: 365); // Set initial duration to a large value
+          days: 365);
 
-      // Iterate through exams to find nearest one
       for (int i = 0; i < exams.length; i++) {
         DateTime examDate = exams[i].timeExam;
         Duration difference = examDate.difference(currentDate);
         if (difference.isNegative) {
-          // Exam date is in the past, skip it
           continue;
         }
         if (difference < nearestDuration) {
@@ -193,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       }
 
-      // Show notification for nearest exam if found
+
       if (nearestExam != null) {
         int daysUntilExam = nearestDuration.inDays;
         _showNotification(nearestExam.subject, daysUntilExam);
@@ -231,7 +228,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   );
                 }
-                // Handle add action
               },
             ),
           ),
@@ -290,7 +286,6 @@ class _MyHomePageState extends State<MyHomePage> {
             eventLoader: _getEventsForDay,
             startingDayOfWeek: StartingDayOfWeek.monday,
             calendarStyle: CalendarStyle(
-              // Use `CalendarStyle` to customize the UI
               outsideDaysVisible: false,
             ),
             onDaySelected: _onDaySelected,
