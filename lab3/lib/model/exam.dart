@@ -16,7 +16,7 @@ class Exam {
   factory Exam.fromJson(Map<String, dynamic> json) {
     return Exam(
       subject: json['subject'] as String,
-      timeExam: DateParser(json['dateFrom']),
+      timeExam: DateParser(json['timeExam']),
       duration: json['duration'] as int
     );
   }
@@ -24,7 +24,8 @@ class Exam {
   static DateTime DateParser(dynamic dateString) {
     if (dateString is String) {
       return DateTime.tryParse(dateString) ?? DateTime.now();
-    } else if (dateString is Timestamp) {
+    } else
+    if (dateString is Timestamp) {
       return dateString.toDate();
     } else {
       return DateTime.now();

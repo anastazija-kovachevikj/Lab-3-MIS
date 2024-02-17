@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lab3/main.dart';
+import 'package:lab3/table_calendar/main.dart';
 import 'dart:math';
 import '../model/exam.dart';
 import 'package:lab3/repo/repository.dart';
@@ -55,6 +57,10 @@ class _ExamsScreenState extends State<ExamsScreen> {
           return GestureDetector(
             onTap: () {
               repository.addExamToStudent(exams[index], FirebaseAuth.instance.currentUser!.uid);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage(title: 'title',)),
+              );
             },
             child: _buildExamItem(exams[index], index),
           );
