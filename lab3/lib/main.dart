@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Colors.white),
         ),
       ),
-      home: const MyHomePage(title: 'Lab3 - Index : 203060',),
+      home: const MyHomePage(title: '203060',),
     );
   }
 }
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late final ValueNotifier<List<Event>> _selectedEvents;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
-      .toggledOff; // Can be toggled on/off by longpressing a date
+      .toggledOff;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
   DateTime? _rangeStart;
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         _selectedDay = selectedDay;
         _focusedDay = focusedDay;
-        _rangeStart = null; // Important to clean those
+        _rangeStart = null;
         _rangeEnd = null;
         _rangeSelectionMode = RangeSelectionMode.toggledOff;
       });
@@ -172,9 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
         userExams = exams;
       });
 
-      // Get current date
       DateTime currentDate = DateTime.now();
-
 
       Exam? nearestExam;
       Duration nearestDuration = Duration(

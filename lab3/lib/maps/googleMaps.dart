@@ -7,16 +7,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 
-class GoogleMapWidget extends StatefulWidget {
+class GoogleMapScreen extends StatefulWidget {
   final LatLng destination; 
 
-  GoogleMapWidget({Key? key, required this.destination}) : super(key: key); // Add this constructor
+  GoogleMapScreen({Key? key, required this.destination}) : super(key: key); // Add this constructor
 
   @override
-  _GoogleMapWidgetState createState() => _GoogleMapWidgetState();
+  _GoogleMapScreenState createState() => _GoogleMapScreenState();
 }
 
-class _GoogleMapWidgetState extends State<GoogleMapWidget> {
+class _GoogleMapScreenState extends State<GoogleMapScreen> {
   late GoogleMapController _mapController;
   late LocationData _currentLocation;
   late Location location;
@@ -63,7 +63,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     final String apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?'
         'origin=${_currentLocation.latitude},${_currentLocation.longitude}'
         '&destination=${_destination.latitude},${_destination.longitude}'
-        '&key='';
+        '&key=';
 
     final http.Response response = await http.get(Uri.parse(apiUrl));
     final decoded = json.decode(response.body);
