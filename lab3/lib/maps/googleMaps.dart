@@ -63,7 +63,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     final String apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?'
         'origin=${_currentLocation.latitude},${_currentLocation.longitude}'
         '&destination=${_destination.latitude},${_destination.longitude}'
-        '&key=AIzaSyBaLaycgrXQD7Rw7EpzmBCJc5n5GP3Np0I';
+        '&key='';
 
     final http.Response response = await http.get(Uri.parse(apiUrl));
     final decoded = json.decode(response.body);
