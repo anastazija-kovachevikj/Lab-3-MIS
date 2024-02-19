@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:lab3/events/eventsList.dart';
 import 'package:lab3/firebase_options.dart';
 import 'package:lab3/loginPage.dart';
 
@@ -12,6 +13,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 import 'Event.dart';
 import 'examsScreen.dart';
+import 'maps/googleMaps.dart';
 import 'model/exam.dart';
 
 void main() async {
@@ -239,6 +241,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
+            child: IconButton(
+              icon: Icon(Icons.map, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EventListScreen()),
                 );
               },
             ),
